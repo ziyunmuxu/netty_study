@@ -16,3 +16,9 @@ Channel可以分成两大类：用于网络读写的SelectableChannel和用于�
 *由于JDK使用了epoll()替代传统的select实现*，并没有最大连接句柄的限制。
 
 ----------
+## AIO  编程 ##
+*JDK1.7升级了NIO类库（NIO2.0），JAVA正式提供与UNIX网络编程事件驱动I/O对应的AIO。NIO2.0引入了新的异步通道的概念，并提供了异步文件通道和异步套接字通道的实现。异步通道提供了两种方式获取操作结果。*  
+
+* 通过java.util.concurrent.Future类来表示异步操作的结果
+* 在执行异步操作时候传入一个java.nio.channels。CompletionHandler接口的实现类作为操作完成的回调
+

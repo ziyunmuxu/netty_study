@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * 采用线程池和任务队列实现一种伪异步的I/O通信框架
+ * NIO编程
  * @author ziyunmuxu
  *
  */

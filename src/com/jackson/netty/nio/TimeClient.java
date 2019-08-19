@@ -18,44 +18,8 @@ public class TimeClient {
 			}
 		}
 		
-		Socket socket = null;
-		BufferedReader in = null;
-		PrintWriter out = null;
-		try{
-			socket = new Socket("127.0.0.1", port);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			out = new PrintWriter(socket.getOutputStream(), true);
-			out.print("QUERY TIME ORDER");
-			out.flush();
-			System.out.println("Send order 2 server succeed");
-			String resp = in.readLine();
-			System.out.println("Now is :" + resp);
-		}catch(Exception e){
-			
-		}finally{
-			if(out != null){
-				out.close();
-				out = null;
-			}
-			
-			if(in != null){
-				try{
-					in.close();
-				}catch(IOException e){
-					e.printStackTrace();
-				}
-				in = null;
-			}
-			if(socket != null){
-				try{
-					socket.close();
-				}catch(IOException e){
-					e.printStackTrace();
-				}
-				socket = null;
-			}
-			
-		}
+		new Thread(new TimeClientHandle("127.0.0.1", port), "TimeClient-001").start();
+		
 	}
 	
 }
